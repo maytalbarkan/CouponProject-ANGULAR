@@ -1,0 +1,84 @@
+<div class="jumbotron center_div">
+  <h1 class="display-4">Welcome Admin</h1>
+  <button class="btn btn-success btn-lg" (click)="moveToLogPage()"> Show all the logs </button>
+</div>
+<br>
+
+<div class="jumbotron center_div">
+    <h1 class="display-4">Companies </h1>
+    <p class="lead">On this page you can see the data on all the companies listed to Maytal&Maayan website and manage the companies.</p>
+    <hr class="my-4">
+   
+
+<table *ngIf="myService.companyList" class="table table-striped table-dark ">
+  <tr>
+    <th scope="col">company name</th>
+    <th scope="col">company email</th>
+    <th scope="col">company password</th>
+    <th scope="col">Company coupons</th>
+    <th scope="col">remove</th>
+    <th scope="col">update</th>
+  </tr>
+
+  <tr *ngFor="let c of myService.companyList">
+    <td>{{c.name}}</td>
+    <td>{{c.email}}</td>
+    <td>{{c.password}}</td>
+    <td>
+      <ul  *ngFor="let coupon of c.coupons">
+        <li>{{coupon.title}}</li>
+      </ul>
+    </td>
+    <!-- <td> <button class="btn btn-danger" (click)="removeCompany(c.id)">click to remove</button> </td> -->
+    <!-- <td> <button  class="btn btn-info" (click)="moveToUpdateCompanyPage(c.id)">click to update</button></td> -->
+  </tr>
+
+</table>
+
+
+</div>
+
+<br>
+<br>
+<div class="jumbotron center_div">
+    <h2 class="display-4">For update compnies please press here </h2>
+  <button class="btn btn-success btn-lg" routerLink="/updateCompany">Update Company </button>
+</div>
+
+
+
+<br>
+<div class="jumbotron center_div">
+    <h1 class="display-4">Customers </h1>
+    <p class="lead">On this page you can see the data on all of the listed customers in Maytal&Maayan website and manage the customers.</p>
+    <hr class="my-4">
+
+  <table  *ngIf="myService.customerList" class="table table-striped table-dark ">
+    <tr>
+      <th scope="col">Customer name</th>
+      <th scope="col">Customer password</th>
+      <th scope="col">Customer coupons</th>
+      <th scope="col">Delete customer </th>
+      <th scope="col">Update customer</th>
+    </tr>
+
+    <tr *ngFor="let cus of myService.customerList">
+      <td>{{cus.name}}</td>
+      <td>{{cus.password}}</td>
+      <td>
+        <ul *ngFor="let coupon of cus.coupons">
+          <li>{{coupon.title}}</li>
+        </ul>
+      </td>
+      <td> <button type="button" class="btn btn-danger" (click)="removeCustomer(cus.id)">click to remove</button> </td>
+      <td> <button type="button" class="btn btn-info" (click)="moveToUpdateCustomerPage(cus.id)">click to update</button> </td>
+    </tr>
+
+  </table>
+</div>
+<br>
+<br>
+<div class="jumbotron center_div">
+    <h2 class="display-4">For update customers please press here </h2>
+  <button class="btn btn-success btn-lg" routerLink="/updateCustomer">Update Customer </button>
+</div>

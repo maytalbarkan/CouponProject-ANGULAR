@@ -1,0 +1,32 @@
+[
+    {
+        "id": 2,
+        "CustomerName": "Lior",
+        "password": "777777",
+        "coupons": []
+    },
+    {
+        "id": 1,
+        "CustomerName": "Evi",
+        "password": "1234",
+        "coupons": []
+    },
+    {
+        "id": 3,
+        "CustomerName": "Haim",
+        "password": "1234",
+        "coupons": []
+    },
+    {
+        "id": 4,
+        "CustomerName": "Shani",
+        "password": "1234",
+        "coupons": []
+    },
+    {
+        "id": 7,
+        "CustomerName": "shani.LTD",
+        "password": "222222",
+        "coupons": []
+    }
+]

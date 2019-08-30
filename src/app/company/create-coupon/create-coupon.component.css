@@ -1,0 +1,11 @@
+input,button{
+    width: 300px;
+    font-size: x-large;
+
+}
+form{
+    margin-top: 50px;
+}
+span{
+    color: red;
+}

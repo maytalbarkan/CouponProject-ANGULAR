@@ -1,0 +1,44 @@
+ 
+
+
+
+    <div class="container">
+    
+      <h1>
+        Coupon
+      </h1>
+      
+      <table>
+        <thead>
+        <th>title</th>
+        <th>start_date</th>
+        <th>end_date</th>
+        <th>amount</th>
+        <th>type</th>
+        <th>message</th>
+        <th>price</th>
+        <th>image</th>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let p of coupons">
+           
+      
+          <td>{{p.start_date}}</td>
+          <td>{{p.end_date}}</td>
+          <td>{{p.amount}}</td>
+          <td>{{p.type}}</td>
+          <td>{{p.message}}</td>
+          <td>{{p.price}}</td>
+          <td>{{p.image}}</td>
+        
+          
+          <!-- <td>
+              <button class="btn btn-primary btn-lg text-center" (click)="PurchaseCoupon()" [disabled]="PurchaseCoupon(p.couponId)">Buy This Coupon!</button> 
+          </td> -->
+      
+        </tr>
+      </tbody>
+        </table>
+        <a routerLink = "/customer"> Back to Customer Menu</a>
+      
+        </div>

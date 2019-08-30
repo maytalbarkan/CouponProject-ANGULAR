@@ -1,0 +1,14 @@
+.dot {
+    border-radius: 50%;
+   
+    width: 10px;
+    height: 10px;
+    padding-right: 7px;
+    padding-left: 7px;
+    background-color: red;
+    border: 1px solid gray;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+  }
+

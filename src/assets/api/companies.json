@@ -1,0 +1,37 @@
+[
+    {
+        "id": 106,
+        "compName": "Noam&Omer",
+        "password": "12345",
+        "email": "Noam.cohen@gmail.com",
+        "coupons": []
+    },
+    {
+        "id": 5,
+        "compName": "Phoebus",
+        "password": "22222",
+        "email": "oriel@test.com",
+        "coupons": []
+    },
+    {
+        "id": 6,
+        "compName": "mPrest",
+        "password": "12345",
+        "email": "oriel@test.com",
+        "coupons": []
+    },
+    {
+        "id": 208,
+        "compName": "Noam",
+        "password": "221284",
+        "email": "evi.cohen1@gmail.com",
+        "coupons": []
+    },
+    {
+        "id": 8,
+        "compName": "ADL",
+        "password": "12345",
+        "email": "oriel@test.com",
+        "coupons": []
+    }
+]
