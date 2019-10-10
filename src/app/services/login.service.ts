@@ -1,59 +1,92 @@
 import { Injectable } from '@angular/core';
-import { Credentials } from '../models/credentials';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginResult } from '../models/login-result';
+import { UrlsServiceService } from './UrlsServiceService';
+import { Router } from '@angular/router';
+import { ResponseCodes } from '../models/ResponseCodesEnums';
+import { retry } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
 })
 export class LoginService {
 
-    public isLoggedIn: boolean;
-    public type: string;
+  constructor(private http: HttpClient, private urlsService: UrlsServiceService) { }
 
-    public constructor(private httpClient: HttpClient) { }
+  public token: string = localStorage.getItem("token");
+  private userAdmin = JSON.parse(localStorage.getItem("userAdmin") || 'false');
+  private userCompany = JSON.parse(localStorage.getItem("userCompany") || 'false');
+  private userCustomer = JSON.parse(localStorage.getItem("userCustomer") || 'false');
+  private userName: string = JSON.parse(localStorage.getItem("username"));
 
-    // The server must return one of the following jsons: 
-    // { "isLoggedIn": true, "type": "customer" }
-    // { "isLoggedIn": true, "type": "company" }
-    // { "isLoggedIn": true, "type": "admin" }
-    // { "isLoggedIn": false, "type": "" }
+  login(userName, password, cliantType): Observable<any> {
+    let url = this.urlsService.getLoginUrl() + '?name=' + userName + "&password=" + password + "&clientType=" + cliantType;
+    console.log(url)
+    return this.http.post(url, null, { observe: 'response', responseType: 'text' });
+  }
 
-    public isExist(credentials: Credentials): Observable<LoginResult> {
+  public logout() {
+    localStorage.setItem("token", null);
+    this.setAdminUserF();
+    this.setCompanyUserF(); 
+    this.setCustomerUserF();
+    alert("good bye!");
+  }
 
-        // Real Server: 
-         return this.httpClient.post<LoginResult>("http://localhost:8080/CouponProject/login.html", credentials, {withCredentials: true});
+  // GET&SET token
+  public getToken() {
+    return this.token;
+  }
+  public setToken(token: string) {
+    this.token = token;
+  }
 
-        // Demo Server: 
-    //     return this.httpClient.get<LoginResult>("/assets/json/server-demo.json");
-     }
 
-    public isExistDemo(credentials: Credentials): boolean {
+  // GET & SET & SETfalse admin user
+  getAdminUser() {
+    return this.userAdmin;
+  }
+  setAdminUser() {
+    localStorage.setItem("userAdmin", "true");
+    this.userAdmin = true;
+  }
+  setAdminUserF() {
+    localStorage.setItem("userAdmin", "false");
+    this.userAdmin = false;
+  }
 
-        if (credentials.type === "customer" && credentials.username === "1" && credentials.password === "1") {
-            this.isLoggedIn = true;
-            this.type = credentials.type;
-            return true;
-        }
 
-        if (credentials.type === "company" && credentials.username === "2" && credentials.password === "2") {
-            this.isLoggedIn = true;
-            this.type = credentials.type;
-            return true;
-        }
+  // GET & SET & SETfalse company user
+  getCompanyUser() {
+    return this.userCompany;
+  }
+  setCompanyUser() {
+    localStorage.setItem("userCompany", "true");
+    this.userCompany = true;
+  }
+  setCompanyUserF() {
+    localStorage.setItem("userCompany", "false");
+    this.userCompany = false;
+  }
 
-        if (credentials.type === "admin" && credentials.username === "3" && credentials.password === "3") {
-            this.isLoggedIn = true;
-            this.type = credentials.type;
-            return true;
-        }
 
-        return false;
-    }
+  // GET & SET & SETfalse customer user
+  getCustomerUser() {
+    return this.userCustomer;
+  }
+  setCustomerUser() {
+    localStorage.setItem("userCustomer", "true");
+    this.userCustomer = true;
+  }
+  setCustomerUserF() {
+    localStorage.setItem("userCustomer", "false");
+    this.userCustomer = false;
+  }
 
-    public logout(): void {
-        this.type = "";
-        this.isLoggedIn = false;
-    }
+
+  // GET user name
+  getUserName() {
+    return this.userName;
+  }
 }

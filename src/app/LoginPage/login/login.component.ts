@@ -2,7 +2,11 @@
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Credentials } from 'src/app/models/credentials';
+import { Title } from '@angular/platform-browser';
+import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { ResponseCodes } from 'src/app/models/ResponseCodesEnums';
+import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { LoginService } from 'src/app/services/login.service';
 
 
@@ -11,50 +15,57 @@ import { LoginService } from 'src/app/services/login.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  public credentials = new Credentials();
+  public imageWidth: number;
+  @ViewChild('f', {static: false}) userLoginForm: NgForm;
+  obsSubscription: Subscription = null;
 
-  public constructor(private loginService: LoginService, private router: Router) { }
+  public constructor(private title: Title, private router: Router, private loginService: LoginService) { }
 
-  // Real Server: 
-  public login(): void {
-      this.loginService.isExist(this.credentials).subscribe(loginResult => {
-          if (!loginResult.isLoggedIn) {
-              alert("Incorrect username or password!");
-          }
-          else {
-              this.loginService.isLoggedIn = true;
-              this.loginService.type = loginResult.type;
-              if (loginResult.type === "customer") {
-                  this.router.navigate(["/customer"]);
-              }
-              else if (loginResult.type === "company") {
-                  this.router.navigate(["/company"]);
-              }
-              else if (loginResult.type === "admin") {
-                  this.router.navigate(["/admin"]);
-              }
-          }
+  ngOnInit() {
+    this.title.setTitle("login to coupon")
+    this.imageWidth = 250;
+  }
+  public increaseWidth(): void {
+    this.imageWidth += 10;
+  }
+  public decreaseWidth(): void {
+    this.imageWidth -= 10;
+  }
+  public resetWidth(): void {
+    this.imageWidth = 250;
+  }
+
+  onSubmit() {
+    let username = this.userLoginForm.value.username;
+    let password = this.userLoginForm.value.password;
+    let clientType = this.userLoginForm.value.clientType;
+
+    this.loginService.login(username, password, clientType).subscribe(res => {
+        if (clientType === "ADMIN") { this.router.navigate(["/admin"]) //navigate to admin page
+          if (res.status === ResponseCodes.OK) { this.loginService.token = res.body; localStorage.setItem("token", res.body); this.loginService.setAdminUser(); console.log("admin is logged in !"); console.log(this.loginService.token)}
+          else { console.log(res.status); }
+        }
+        if (clientType === "CUSTOMER") { this.router.navigate(["/customer"])//navigate to customer page
+          if (res.status === ResponseCodes.OK){ this.loginService.token = res.body;  localStorage.setItem("token", res.body);  this.loginService.setCustomerUser(); console.log("customer is logged in !"); console.log(this.loginService.token)}
+          else { console.log(res.status); }
+        }
+        if (clientType === "COMPANY") {  this.router.navigate(["/company"])//navigate to company page
+          if (res.status === ResponseCodes.OK) { this.loginService.token = res.body;  localStorage.setItem("token", res.body);  this.loginService.setCompanyUser(); console.log("company is logged in !"); console.log(this.loginService.token)}
+          else { console.log(res.status); }
+        }
+      },
+      err => {
+        let error: HttpErrorResponse = err;
+        if (error.error === ResponseCodes.UNAUTHORIZED) { console.log("unautorized!!!") }
+        else { console.log(error.error) }
       });
   }
 
-  // Demo Server
-  public loginDemo(): void {
-      if (this.loginService.isExistDemo(this.credentials)) {
-          if (this.credentials.type === "customer") {
-              this.router.navigate(["/customer"]);
-          }
-          else if (this.credentials.type === "company") {
-              this.router.navigate(["/company"]);
-          }
-          else if (this.credentials.type === "admin") {
-              this.router.navigate(["/admin"]);
-          }
-      }
-      else {
-          alert("Incorrect username or password!");
-      }
+  ngOnDestroy(): void {
+    if (this.obsSubscription != null) {
+      this.obsSubscription.unsubscribe();
+    }
   }
-
 }

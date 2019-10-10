@@ -1,0 +1,25 @@
+
+<div class="jumbotron center_div">
+
+  <h1 class="display-4"> Remove Customer</h1>
+  <hr class="my-4">
+
+<h4>In order to delete a customer from the system, please enter the customer ID and then press delete </h4>
+<br>
+<br>
+
+
+<div>
+
+
+  <div>
+    <input class="inputs" #customerID type="number" placeholder="Customer ID" maxlength="20" min="0">
+    <br>
+    <br>
+    <button class="buttons" (click)="deleteCustomer(customerID.value)">Delete</button>
+  </div>
+
+  <br>
+  
+<a class="backTo" routerLink='/admin'> Back to Admin menu</a>
+</div>

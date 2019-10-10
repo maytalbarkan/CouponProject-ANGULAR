@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { AdminService } from './services/admin.service';
-import { CompanyServiceService } from './services/company-service.service';
-import { CustomerServiceService } from './services/customer-service.service';
 import { Router } from '@angular/router';
 import { LoginService } from './services/login.service';
 

@@ -1,0 +1,25 @@
+<div class="jumbotron center_div">
+
+    <h1 class="display-4"> Update Customer</h1>
+    <hr class="my-4">
+  
+  <h4>In order to update a customer please fill the missing data and then press update </h4>
+  <br>
+  <br>
+    <div>
+        <input class="inputs" #custid type="number" placeholder="Customer id" maxlength="20" min="0">
+        <br><br>
+        
+        <input class="inputs" #pass type="text" placeholder="New password">
+        <br><br>
+        
+        
+        <button (click)="updateCustomer(custid.value, pass.value)">Update</button>
+        
+        </div>
+        <br>
+        <a routerLink = '/admin'> Back to Admin menu</a>
+
+
+
+

@@ -1,0 +1,25 @@
+<div class="jumbotron center_div">
+    <h1 class="display-4">Create a new company</h1>
+    <hr class="my-4">
+    <div class="">
+
+
+            <h1>Add new company</h1>
+            
+            <div>
+              <input class="inputs" #name type="text" placeholder="Name">
+              <br><br>
+            
+              <input class="inputs" #pass type="text" placeholder="Password">
+              <br><br>
+            
+              <input class="inputs" #email type="text" placeholder="Email">
+              <br><br>
+            
+              <button (click)="createCompany(name.value, pass.value, email.value)">Add</button>
+            <br>
+            <br>
+            <a class="backTo" routerLink='/admin'> Back to Admin menu</a>
+
+            </div>
+        

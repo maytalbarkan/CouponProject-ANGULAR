@@ -1,0 +1,24 @@
+
+<div class="jumbotron center_div">
+
+  <h1 class="display-4"> Remove Company</h1>
+  <hr class="my-4">
+
+<h4>In order to delete a company from the system, please enter the company ID and then press delete </h4>
+<br>
+<br>
+
+
+<div>
+ 
+
+  <div>
+    <input class="inputs" #companyID type="number" placeholder="Company ID" maxlength="20" min="0">
+    <br>
+    <br>
+    <button class="buttons" (click)="deleteCompany(companyID.value)">Delete</button>
+  </div>
+  <br>
+  <br>
+  <a class="backTo" routerLink='/admin'> Back to Admin menu</a>
+</div>

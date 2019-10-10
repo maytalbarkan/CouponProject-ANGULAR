@@ -1,0 +1,25 @@
+
+<div class="jumbotron center_div">
+
+  <h1 class="display-4"> Update Company</h1>
+  <hr class="my-4">
+
+<h4>In order to update a company please fill the missing data and then press update </h4>
+<br>
+<br>
+
+<input class="inputs" #compid type="number" placeholder="Company id" maxlength="20" min="0">
+<br><br>
+
+<input class="inputs" #pass type="text" placeholder="New password">
+<br><br>
+
+<input class="inputs" #email type="text" placeholder="New email">
+<br><br>
+
+<button (click)="updateCompany(compid.value, pass.value, email.value)">Update!</button>
+<br><br>
+
+<a routerLink = '/admin'> Back to Admin menu</a>
+</div>
+

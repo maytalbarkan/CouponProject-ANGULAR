@@ -1,0 +1,35 @@
+
+<div class="jumbotron center_div">
+
+  <h1 class="display-4"> Customer by ID</h1>
+  <hr class="my-4">
+
+<h4>In order to see your chosen customer, please enter the customer id bellow and press the confirm button </h4>
+<br>
+<br>
+<div>
+    <div>
+      <input class="inputs" #customerID type="number" placeholder="ID" maxlength="20" min="0">
+      <br>
+      <br>
+      <button class="buttons" (click)="getCustomer(customerID.value)">Show me this customer!</button>
+  
+    </div>
+  
+    <br>
+    <br>
+    <div>
+      Customer ID: <span>{{itemService.customer.id}}</span>
+      <br>
+      Customer Name: <span>{{itemService.customer.name}}</span>
+      <br>
+      Customer Password: <span>{{itemService.customer.password}}</span>
+      <br>
+      Customer Email: <span>{{itemService.customer.email}}</span>
+      <br>
+    </div>
+    <br>
+  </div>
+  
+  
+  <a routerLink='/admin'> Back to Admin menu</a>
