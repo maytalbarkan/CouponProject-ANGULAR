@@ -21,6 +21,8 @@ import { RemoveCompanyComponent } from './AdminPage/Company-admin/remove-company
 import { RemoveCustomerComponent } from './AdminPage/Customer-admin/remove-customer/remove-customer.component';
 import { GetCompanyComponent } from './AdminPage/Company-admin/get-company/get-company.component';
 import { CompanyComponent } from './company/company.component';
+import { CreateCouponComponent } from './company/create-coupon/create-coupon.component';
+import { DeleteCouponComponent } from './company/delete-coupon/delete-coupon.component';
 
 
 const routes: Routes = [
@@ -46,12 +48,12 @@ const routes: Routes = [
 
   { path: "company", component: CompanyComponent},
 // { path: "company", canActivate: [CompanyGuardService], component: CompanyComponent},
-  // {path:"createCoupon", component:CreateCouponComponent},
-  // {path:"getCoupon", component:GetCouponComponent},
+ {path:"createCoupon", component:CreateCouponComponent},
+ {path:"removeCoupon", component:DeleteCouponComponent},
+ // {path:"getCoupon", component:GetCouponComponent},
   // {path:"getCouponsByDate", component:GetCouponsByDateComponent},
   // {path:"getCouponsByPrice", component:GetCouponsByPriceComponent},
   // {path:"getCouponsByType", component:GetCouponsByTypeComponent},
-  // {path:"removeCoupon", component:RemoveCouponComponent},
   // {path:"updateCoupon", component:UpdateCouponComponent},
 
 ];

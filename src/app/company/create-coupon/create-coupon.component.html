@@ -1,0 +1,48 @@
+
+
+<div class="jumbotron center_div">
+  <h1 class="display-4">Create new Coupon</h1>
+  <hr class="my-4">
+  <div class="">
+
+<div>
+  <input class="inputs" #title type="text" placeholder="Title">
+  <br><br>
+
+  <input class="inputs" #start type="text" placeholder="Start Date">
+  <br><br>
+
+  <input class="inputs" #end type="text" placeholder="End Date">
+  <br><br>
+
+  <input class="inputs" #amount type="text" placeholder="Amount">
+  <br><br>
+
+  <input class="inputs" #mess type="text" placeholder="Message">
+  <br><br>
+
+  <input class="inputs" #price type="text" placeholder="Price">
+  <br><br>
+
+  <input class="inputs" #img type="text" placeholder="Image">
+  <br><br>
+
+
+
+  <select class="inputs" #type type="text" placeholder="Coupon Type">
+    <option selected disabled>Select Coupon Type</option>
+    <option value="RESTURANTS">RESTURANTS</option>
+    <option value="ELECTRICITY">ELECTRICITY</option>
+    <option value="FOOD">FOOD</option>
+    <option value="HEALTH">HEALTH</option>
+    <option value="SPORTS">SPORTS</option>
+    <option value="CAMPING">CAMPING</option>
+    <option value="TRAVELING">TRAVELING</option>
+  </select>
+  <br><br>
+
+  <button
+    (click)="createCoupon(title.value, start.value, end.value, amount.value, mess.value, price.value, img.value, type.value)">Add</button>
+    <br><br>
+    <a class="backTo" routerLink='/company'> Back to Company menu</a>
+</div>

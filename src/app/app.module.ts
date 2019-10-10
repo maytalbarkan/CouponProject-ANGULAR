@@ -19,6 +19,9 @@ import { CreateCompanyComponent } from './AdminPage/Company-admin/create-company
 import { RemoveCompanyComponent } from './AdminPage/Company-admin/remove-company/remove-company.component';
 import { GetCustomerComponent } from './AdminPage/Customer-admin/get-customer/get-customer.component';
 import { RemoveCustomerComponent } from './AdminPage/Customer-admin/remove-customer/remove-customer.component';
+import { CreateCouponComponent } from './company/create-coupon/create-coupon.component';
+import { DeleteCouponComponent } from './company/delete-coupon/delete-coupon.component';
+import { UpdateCouponComponent } from './company/update-coupon/update-coupon.component';
 
 
 
@@ -44,7 +47,10 @@ import { RemoveCustomerComponent } from './AdminPage/Customer-admin/remove-custo
     CreateCompanyComponent,
     RemoveCompanyComponent,
     GetCustomerComponent,
-    RemoveCustomerComponent, 
+    RemoveCustomerComponent,
+    CreateCouponComponent,
+    DeleteCouponComponent,
+    UpdateCouponComponent, 
   ],
 
   
