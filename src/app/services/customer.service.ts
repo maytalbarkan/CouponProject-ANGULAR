@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
   export class CustomerService {
   
     constructor(private http: HttpClient, private urlsService: UrlsServiceService, private loginService: LoginService) { }
-  
 
     public purchasecoupon = "purchaseCoupon";
     private getcouponsbycoupontype = "getCouponsByCouponType";
