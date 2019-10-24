@@ -1,17 +1,20 @@
 <section>
-
-  <div id="loginForm">
-      <form (ngSubmit)="onSubmit()" #f="ngForm" action="login" method="post">
+  
+  <div class="jumbotron center_div" id="loginForm">
+      
+    <h1 class="display-4">Sign in to M&M Website </h1>
+	<hr class="my-4"> 
+    
+    <form (ngSubmit)="onSubmit()" #f="ngForm" action="login" method="post">
           <br>
-        <p id="pp">Please enter a username and password:</p>
-        <label for id="name">Name: </label>
+        <label for id="name" class="lead">Name: </label>
         <input type="text" id="username" ngModel name="username" required  placeholder="Enter Your Name...">
       <br>
          <label for id="password">Password: </label>
         <input type="password" id="password" ngModel name="password" password required placeholder="Enter Your password...">
       <br>
   
-        <label for id="type1">choose your Client Type: </label>
+        <label for id="type1">Client Type: </label>
         <select id="clientType" name="clientType" ngModel>
         <option selected disabled>Select Type</option>
         <option value="ADMIN">ADMIN</option>
@@ -19,11 +22,15 @@
         <option value="CUSTOMER">CUSTOMER</option>
         </select>
       
-        <h3><button type="submit" class="button">LOGIN 	<i class="fa fa-user-circle-o" style="font-size:30px;"></i></button>
-        <button type="reset" class="button"	>RESET	<i class="fa fa-eraser" style="font-size:30px;"></i></button></h3>
+        <br>
+
+        <br>
+
+        <h3><button type="submit" class="btn btn-primary">LOGIN 	<i class="fa fa-user-circle-o" style="font-size:30px;"></i></button>
+        <button type="reset"class="btn btn-danger"	>RESET	<i class="fa fa-eraser" style="font-size:30px;"></i></button></h3>
       
       </form>
-      <img src="/assets/images/coupon.jpg" [width]="imageWidth">
+      <img src="/assets/image/coupon.png" [width]="imageWidth">
     </div>
   <div>
     <button (click)="decreaseWidth()">-</button>

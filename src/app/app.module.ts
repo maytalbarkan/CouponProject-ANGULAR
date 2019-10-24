@@ -11,17 +11,27 @@ import { UpdateCustomerComponent } from './AdminPage/Customer-admin/update-custo
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './LoginPage/login/login.component';
 import { HomeComponent } from './home/home.component';
-import { CompanyComponent } from './company/company.component';
-import { CustomerComponent } from './customer/customer.component';
+import { CompanyComponent } from './CompanyPage/company.component';
+import { CustomerComponent } from './CustomerPage/customer.component';
 import { GetCompanyComponent } from './AdminPage/Company-admin/get-company/get-company.component';
 import { HttpRequestInterceptor } from './HttpRequestInterceptor';
 import { CreateCompanyComponent } from './AdminPage/Company-admin/create-company/create-company.component';
 import { RemoveCompanyComponent } from './AdminPage/Company-admin/remove-company/remove-company.component';
 import { GetCustomerComponent } from './AdminPage/Customer-admin/get-customer/get-customer.component';
 import { RemoveCustomerComponent } from './AdminPage/Customer-admin/remove-customer/remove-customer.component';
-import { CreateCouponComponent } from './company/create-coupon/create-coupon.component';
-import { DeleteCouponComponent } from './company/delete-coupon/delete-coupon.component';
-import { UpdateCouponComponent } from './company/update-coupon/update-coupon.component';
+import { CreateCouponComponent } from './CompanyPage/create-coupon/create-coupon.component';
+import { DeleteCouponComponent } from './CompanyPage/delete-coupon/delete-coupon.component';
+import { UpdateCouponComponent } from './CompanyPage/update-coupon/update-coupon.component';
+import { GetAllCompanyCouponsComponent } from './CompanyPage/get-all-company-coupons/get-all-company-coupons.component';
+import { CompenydetailsComponent } from './CompanyPage/compenydetails/compenydetails.component';
+import { GetCouponByPriceComponent } from './CustomerPage/get-coupon-by-price/get-coupon-by-price.component';
+import { GetCouponByTypeComponent } from './CustomerPage/get-coupon-by-type/get-coupon-by-type.component';
+import { PurchaseCouponComponent } from './CustomerPage/purchase-coupon/purchase-coupon.component';
+import { HistoryPageComponent } from './CustomerPage/history-page/history-page.component';
+import { GetAllPurchaseComponent } from './CustomerPage/get-all-purchase/get-all-purchase.component';
+import { IncomeByCompanyIdComponent } from './AdminPage/Income/income-by-company-id/income-by-company-id.component';
+import { IncomeByCustomerIdComponent } from './AdminPage/Income/income-by-customer-id/income-by-customer-id.component';
+import { CompanyIncomeComponent } from './CompanyPage/company-income/company-income.component';
 
 
 
@@ -50,7 +60,17 @@ import { UpdateCouponComponent } from './company/update-coupon/update-coupon.com
     RemoveCustomerComponent,
     CreateCouponComponent,
     DeleteCouponComponent,
-    UpdateCouponComponent, 
+    UpdateCouponComponent,
+    GetAllCompanyCouponsComponent,
+    CompenydetailsComponent,
+    GetCouponByPriceComponent,
+    GetCouponByTypeComponent,
+    PurchaseCouponComponent,
+    HistoryPageComponent,
+    GetAllPurchaseComponent,
+    IncomeByCompanyIdComponent,
+    IncomeByCustomerIdComponent,
+    CompanyIncomeComponent, 
   ],
 
   

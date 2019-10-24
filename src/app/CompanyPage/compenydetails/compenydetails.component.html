@@ -1,0 +1,37 @@
+
+
+<div class="jumbotron center_div">
+
+    <h1 class="display-4"> Company by ID</h1>
+    <hr class="my-4">
+  
+  <h4>In order to see your chosen company, please enter the company id bellow and press the confirm button </h4>
+  <br>
+  <br>
+  <div>
+      <input class="inputs" #companyID type="number" placeholder="Company ID" maxlength="20" min="0">
+      <br>
+      <br>
+      <button class="buttons" (click)="getCompany(companyID.value)">confirm</button>
+  
+    </div>
+  
+    <br>
+    <br>
+    <div>
+      Company ID: <span>{{itemService.company.id}}</span>
+      <br>
+      Company Name: <span>{{itemService.company.companyName}}</span>
+      <br>
+      Company Password: <span>{{itemService.company.password}}</span>
+      <br>
+      Company Email: <span>{{itemService.company.email}}</span>
+      <br>
+    </div>
+    <br>
+  
+    <a routerLink='/company'> Back to company menu</a>
+  </div>
+  
+  
+  

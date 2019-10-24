@@ -10,18 +10,27 @@ import { Observable } from 'rxjs';
   export class CompanyService {
   
     constructor(private http: HttpClient, private urlsService: UrlsServiceService, private loginService: LoginService) { }
-  
+    private getcompany= "getCompany";
     private createcoupon = "insertCoupon";
     private deletecoupon = "deleteCoupon";
     private updatecoupon = "updateCoupon";
+    private getallcompanycoupons = "getAllCompanyCoupons";
+
     // private getcoupon = "getCoupon";
     private getallcoupons = "getAllCoupons";
-    private purchasecoupon = "purchaseCoupon";
+
     private getcouponsbycoupontype = "getCouponsByCouponType";
     private getallcustomercoupons = "getAllCustomerCoupons";
     private getcouponsbyprice = "getCouponsByPrice";
-    private getallcompanycoupons = "getAllCompanyCoupons";
   
+  
+   // company details
+    public getCompany(id: number): Observable<any> {
+  
+      let url = this.urlsService.getAdminUrl() + this.getcompany + "/" + id + "/" + this.loginService.token;
+      return this.http.get(url, { observe: 'response', responseType: 'text' });
+    }
+
     //create coupon - good
     public createCoupon(Title, StartDate, EndDate, Amount, Message, Price, Image, Type): Observable<any> {
       let startDate = new Date(StartDate).getTime();
@@ -57,11 +66,7 @@ import { Observable } from 'rxjs';
       return this.http.get(url, { observe: 'response', responseType: 'text' });
     }
   
-    //purchase coupon 
-    public purchaseCoupon(id:number): Observable<any> {
-      let url = this.urlsService.getCustomerUrl() + this.purchasecoupon + "/" + id + "/" + this.loginService.token;
-      return this.http.post(url, null, { observe: 'response', responseType: 'text' });
-    }
+  
   
     //get all customer coupons 
     public getAllCustomerCoupons(id:number): Observable<any> {

@@ -1,9 +1,11 @@
-/* section{
+ section{
     height: 100%;
-    /* border: 2px solid black;  
+    border: 2px solid black;  
     text-align: center;
     box-sizing: border-box;
     font-size:25px;
+    text-align: center;
+
 }
 
 #name {
@@ -26,7 +28,7 @@
     font-family:  Arial, Helvetica, sans-serif ;
     font-weight: bold;
 }
-/* 
+
 img{
 	width: 250px; 
 	height: 130px;
@@ -41,9 +43,8 @@ div:nth-of-type(2){
     top: 120px;
     right: 20px;
     padding: 10px;
-} */
+} 
 
 .center_div{
     margin: 0 auto;
-    width:80% /* value of your choice which suits your alignment */
-}
+    width:80%;} 

@@ -1,21 +1,28 @@
-// import { Injectable } from '@angular/core';
-// import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-// import { LoginService } from './login.service';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivate } from '@angular/router';
+import { LoginService } from './login.service';
 
-// @Injectable({
-//     providedIn: 'root'
-// })
-// export class AdminGuardService implements CanActivate {
+@Injectable({
+  providedIn: 'root'
+})
+export class AdminGuardService implements CanActivate {
 
-//     public constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
-//     public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-//         if(this.loginService.type === "admin" && this.loginService.isLoggedIn) {
-//             return true;
-//         }
+  path: ActivatedRouteSnapshot[];
+  route: ActivatedRouteSnapshot;
+  state: RouterStateSnapshot;
 
-//         this.router.navigate(["/login"]);
+  public canActivate(r: ActivatedRouteSnapshot, s: RouterStateSnapshot): boolean {
+    if (this.loginService.getAdminUser() === true) {
+      return true;
+    }
+    else {
+      this.router.navigate(["/login"]);
+      return false;
+    }
 
-//         return false;
-//     }
-// }
+  }
+  
+}
+  

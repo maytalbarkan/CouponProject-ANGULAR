@@ -84,7 +84,7 @@ public getAllCompanies(): Observable<any> {
  //delete company works!
   public deletecompany(id: number): Observable<any> {
 
-    let url = this.urlsService.getAdminUrl() + this.deletecompany + "/" + id + "/" + this.connectionService.token;
+    let url = this.urlsService.getAdminUrl() + this.removecompany + "/" + id + "/" + this.connectionService.token;
     return this.http.delete(url, { observe: 'response', responseType: 'text' });
   }
 

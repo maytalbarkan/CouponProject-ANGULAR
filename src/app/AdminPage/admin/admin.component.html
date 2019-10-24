@@ -25,7 +25,7 @@
         <br>
         <br>
 
-        <button class="btn btn-success btn-lg" routerLink="/remove-company" > delete company (not work)</button>
+        <button class="btn btn-success btn-lg" routerLink="/remove-company" > remove company</button>
         <br>
         <br>
 
@@ -61,16 +61,13 @@
       <br>
     </div>
 
-    <br>
-    <br>
+  
 
+   
 
-
-    <div class="jumbotron left_div">
-      <h1 class="display-4">Customers</h1>
-      <p class="lead">On this page you can see the data on all the Customers listed to Maytal&Maayan website and manage the Customers.</p>
-      <hr class="my-4">
-    </div>
+    <h1 class="display-4">Customers</h1>
+    <p class="lead">On this page you can see the data on all the Customers listed to Maytal&Maayan website and manage the Customers.</p>
+    <hr class="my-4">
 
     <h1>Customer options:</h1>
 
@@ -78,7 +75,7 @@
     <br>
     <br>
     
-            <button class="btn btn-success btn-lg" routerLink="/updateCustomer" > update customer(not work)</button>
+            <button class="btn btn-success btn-lg" routerLink="/updateCustomer" > update customer</button>
             <br>
             <br>
     
@@ -86,7 +83,7 @@
             <br>
             <br>
     
-            <button class="btn btn-success btn-lg" routerLink="/addCustomer" > create customer (not work)</button>
+            <button class="btn btn-success btn-lg" routerLink="/addCustomer" > create customer </button>
             <br>
             <br>
 
@@ -105,11 +102,9 @@
                   <br>
                   Customer ID: <span>{{c.id}}</span>
                   <br>
-                  Customer Name: <span>{{c.name}}</span>
+                  Customer Name: <span>{{c.customerName}}</span>
                   <br>
                   Customer Password: <span>{{c.password}}</span>
-                  <br>
-                  Customer Email: <span>{{c.email}}</span>
                   <br>
                 </ul>
               </div>
@@ -124,11 +119,16 @@
     <p class="lead">On this page you can see income inpromation</p>
     <hr class="my-4">
 
-    <h1>Income $ options:</h1>
-    <!-- <option routerLink="get-all-income" routerLinkActive="active-link">$ View all income $</option> -->
-    <!-- <option routerLink="get-income-by-company-id" routerLinkActive="active-link">View income by company id</option> -->
-    <!-- <option routerLink="get-income-by-customer-id" routerLinkActive="active-link">View income by customer id</option> -->
+    <h1>Income options:</h1>
 
+    <button class="btn btn-success btn-lg" routerLink="/incomeCompanyId" >View income by company id</button>
+    <br>
+    <br>
+
+    <button class="btn btn-success btn-lg" routerLink="/incomeCustomerd" >View income by customer id</button>
+    <br>
+    <br>
+   
   </div>
 
 

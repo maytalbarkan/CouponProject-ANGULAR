@@ -1,0 +1,49 @@
+
+
+
+<div class="jumbotron center_div" >
+  <h1 class="display-4">View Coupons by price </h1>
+  <p class="lead">On this page you can see all the coupons you purchased by price.</p>
+  <p class="lead">To do so, please list the maximum price you paid on a coupon
+    , and press click </p>
+
+  <hr class="my-4">
+  
+
+
+<input class="inputs" #price type="number" placeholder="$ Max price $" maxlength="20" min="0">
+<button class="buttons" (click)="getCouponsByPrice(price.value)"> Show me coupons</button>
+
+<div class="getInfoAll">
+  <ul *ngFor="let c of this.itemService.coupons">
+    <br>
+    <br>
+    Coupon ID: <span>{{c.id}}</span>
+    <br>
+    Title: <span>{{c.title}}</span>
+    <br>
+    Start Date: <span>{{c.startDate}}</span>
+    <br>
+    End Date: <span>{{c.endDate}}</span>
+    <br>
+    Amount: <span>{{c.amount}}</span>
+    <br>
+    Message: <span>{{c.message}}</span>
+    <br>
+    Price: <span>{{c.price}}</span>
+    <br>
+    <!-- Image: <span>{{c.image}}</span> -->
+    Image: <span><img src="/assets/images/{{c.image}}.jpg" style="width:70px;height:55px;"></span>
+    <br>
+    Coupon Type: <span>{{c.type}}</span>
+    <br>
+  </ul>
+
+  <br>
+<br>
+    <a class="backTo" routerLink='/customer'> Back to Customer menu</a>
+    <br>
+    <br>
+        <a class="backTo" routerLink='/historyPage'> Back to History page</a>
+
+</div>

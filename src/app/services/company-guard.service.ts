@@ -1,21 +1,28 @@
-// import { Injectable } from '@angular/core';
-// import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-// import { LoginService } from './login.service';
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { LoginService } from './login.service';
 
-// @Injectable({
-//     providedIn: 'root'
-// })
-// export class CompanyGuardService implements CanActivate {
 
-//     public constructor(private loginService: LoginService, private router: Router) { }
+@Injectable({
+  providedIn: 'root'
+})
+export class CompanyGuardService implements CanActivate {
 
-//     public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-//         if(this.loginService.type === "company" && this.loginService.isLoggedIn) {
-//             return true;
-//         }
+  constructor(private loginService : LoginService, private router: Router) { }
 
-//         this.router.navigate(["/login"]);
+  path: ActivatedRouteSnapshot[];
+  route: ActivatedRouteSnapshot;
+  state: RouterStateSnapshot;
 
-//         return false;
-//     }
-// }
+  public canActivate(r: ActivatedRouteSnapshot, s: RouterStateSnapshot): boolean {
+    if (this.loginService.getCompanyUser() === true) {
+      return true;
+    }
+    else {
+      this.router.navigate(["/login"]);
+      return false;
+    }
+
+  }
+
+}

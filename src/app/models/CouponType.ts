@@ -1,12 +1,6 @@
   enum couponType {
 
-Food,
-Resturans,
-Electricity,
-Health,
-Sports,
-Camping,
-Traveling
+    RESTURANTS, ELECTRICITY, FOOD, HEALTH, SPORTS, CAMPING, TRAVELING
 
 }
 

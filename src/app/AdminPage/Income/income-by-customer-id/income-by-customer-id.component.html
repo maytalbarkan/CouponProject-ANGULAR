@@ -1,0 +1,33 @@
+
+<div class="jumbotron center_div">
+  <h1 class="display-4">View income by Customer ID </h1>
+  <hr class="my-4">
+<div>
+    <div>
+      <input class="inputs" #customerID type="number" placeholder="Customer ID" maxlength="20" min="0">
+      <button class="btn btn-warning" (click)="getAllIncomeByCustomerId(customerID.value)">Show </button>
+    </div>
+    <br>
+    <div class="getInfoAll">
+      <ul *ngFor="let i of this.itemService.incomes">
+        <br>
+        <br>
+        Income ID: <span>{{i.incomeId}}</span>
+        <br>
+        Client Name: <span>{{i.clientId}}</span>
+        <br>
+        Name: <span>{{i.name}}</span>
+        <br>
+        Date: <span>{{i.date}}</span>
+        <br>
+        Description: <span>{{i.description}}</span>
+        <br>
+        Amount: <span>{{i.amount}}</span>
+        <br>
+      </ul>
+    </div>
+    <br>
+
+    <a class="backTo" routerLink='/admin'> Back to Admin menu</a>
+
+  </div>

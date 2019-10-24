@@ -1,0 +1,53 @@
+
+<div class="jumbotron center_div" >
+  <h1 class="display-4">Purchase coupon </h1>
+  <p class="lead">On this page you can see all our website coupon's if you want to purchase a coupon please edit his id number and press purchase</p>
+  <hr class="my-4">
+
+
+
+  <input class="inputs" #couponID type="number" placeholder="Coupon ID" maxlength="20" min="0">
+  <br>
+  <br>
+  <button class="buttons" (click)="purchaseCoupon(couponID.value)">purchase this coupon!</button>
+ <br>
+ <br>
+
+
+
+ <div>
+  <button class="buttons" (click)="getAllCoupons()"> click</button>
+</div>
+
+<div class="getInfoAll">
+    <ul *ngFor="let c of this.itemService.coupons">
+      <br>
+      <br>
+      Coupon ID: <span>{{c.id}}</span>
+      <br>
+      Title: <span>{{c.title}}</span>
+      <br>
+      Start Date: <span>{{c.startDate}}</span>
+      <br>
+      End Date: <span>{{c.endDate}}</span>
+      <br>
+      Amount: <span>{{c.amount}}</span>
+      <br>
+      Message: <span>{{c.message}}</span>
+      <br>
+      Price: <span>{{c.price}}</span>
+      <br>
+      <!-- Image: <span>{{c.image}}</span> -->
+      Image: <span><img src="/assets/images/{{c.image}}.jpg" style="width:70px;height:55px;"></span>
+      <br>
+      Coupon Type: <span>{{c.type}}</span>
+      <br>
+    </ul>
+
+
+
+
+ 
+  <a class="backTo" routerLink='/customer'> Back to Customer menu</a>
+
+</div>

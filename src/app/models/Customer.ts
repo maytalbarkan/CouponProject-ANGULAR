@@ -1,14 +1,10 @@
-import { Coupon } from './coupon';
+export class Customer{
 
-export class Customer {
-    
-    id: number;
-    name?: string;
-    password?: string;
-    email?: string;
+    public constructor (
+        public id: number,
+        public customerName?: string,
+        public password?: string,
+        public email?: string
+        ){ }
 
-    constructor(){}
-
-
-    
-}
+    }

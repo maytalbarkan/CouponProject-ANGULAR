@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { LoginResult } from '../models/login-result';
 import { UrlsServiceService } from './UrlsServiceService';
-import { Router } from '@angular/router';
-import { ResponseCodes } from '../models/ResponseCodesEnums';
-import { retry } from 'rxjs/operators';
+
 
 @Injectable({
     providedIn: 'root'

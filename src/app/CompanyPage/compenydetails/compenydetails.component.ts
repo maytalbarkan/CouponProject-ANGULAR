@@ -1,28 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { ItemsService } from 'src/app/services/item.service';
-import { AdminService } from 'src/app/services/admin.service';
-import { ResponseCodes } from 'src/app/models/ResponseCodesEnums';
 import { CompanyService } from 'src/app/services/company.service';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
+import { ItemsService } from 'src/app/services/item.service';
+import { ResponseCodes } from 'src/app/models/ResponseCodesEnums';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-get-company',
-  templateUrl: './get-company.component.html',
-  styleUrls: ['./get-company.component.css']
+  selector: 'app-compenydetails',
+  templateUrl: './compenydetails.component.html',
+  styleUrls: ['./compenydetails.component.css']
 })
-export class GetCompanyComponent implements OnInit {
-
-
-  constructor(public companyService:CompanyService, public itemService : ItemsService, private router : Router) { }
-
-  private company: any = {};
+export class CompenydetailsComponent implements OnInit {
+  
+  constructor(private companyService: CompanyService, private router: Router, private loginService: LoginService, public itemService: ItemsService) { }
 
   ngOnInit() {
   }
 
-  public getCompany(companyID: number) {
-    this.companyService.getCompany(companyID).subscribe(res => {
+  public getCompany(id: number) {
+    this.companyService.getCompany(id).subscribe(res => {
       if (res.status === ResponseCodes.OK) { console.log("GET company success! :) "+res.body); this.itemService.company = JSON.parse(res.body); console.log(this.itemService.company); }
       else { console.log("GET company faild! :( "); }
     },
@@ -34,5 +31,8 @@ export class GetCompanyComponent implements OnInit {
     });
   }
 
-
+  private logout(){
+    this.loginService.logout();
+    this.router.navigate(["/login"]);
+  }
 }
