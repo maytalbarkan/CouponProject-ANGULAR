@@ -4,6 +4,7 @@ import { AdminService } from 'src/app/services/admin.service';
 import { Router } from '@angular/router';
 import { ResponseCodes } from 'src/app/models/ResponseCodesEnums';
 import { HttpErrorResponse } from '@angular/common/http';
+import { SignupService } from '../signup-service';
 
 
 @Component({
@@ -13,22 +14,17 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AddCustomerComponent implements OnInit {
 
-  constructor(private adminservice: AdminService, private router: Router) { }
+  constructor(private signupervice: SignupService, private router: Router) { }
 
   ngOnInit() {
   }
 
   public createCustomer(customerName, password) {
-    this.adminservice.createCustomer(customerName, password).subscribe(res => {
+    this.signupervice.createCustomer(customerName, password).subscribe(res => {
       if (res.status === ResponseCodes.OK) { console.log("CREATE customer success! :) "+res.body); alert("CREATE customer success! :)"); }
       else { console.log("CREATE customer faild! :( "); }
     },
-      error => {
-        let resError: HttpErrorResponse = error;
-        if (resError.status === ResponseCodes.UNAUTHORIZED) { console.log("session expired"); alert("please login again");
-        this.router.navigate(["/login"]); }
-        else { console.log("CREATE customer error :( "); console.log(error); }
-      });
-    this.router.navigate(["/admin"]);
+    );
+    this.router.navigate(["/home"]);
   }
 }

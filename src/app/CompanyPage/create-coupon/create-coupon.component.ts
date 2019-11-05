@@ -30,4 +30,6 @@ export class CreateCouponComponent implements OnInit {
       });
     this.router.navigate(["/company"]);
   }
+
+  //https://unsplash.com/ website for photos
 }

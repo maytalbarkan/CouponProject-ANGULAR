@@ -8,6 +8,7 @@ export class UrlsServiceService {
   constructor() { }
 
   private adminMenuUrl = "http://localhost:8080/admin/";
+  private signupUrl="http://localhost:8080/signUp/"
   private companyMenuUrl = "http://localhost:8080/company/";
   private customerMenuUrl = "http://localhost:8080/customer/";
   private loginUrl = "http://localhost:8080/loginService/login";
@@ -18,6 +19,12 @@ export class UrlsServiceService {
   public getAdminUrl() {
     return this.adminMenuUrl;
   }
+
+  public getSignupUrl() {
+    return this.signupUrl;
+  }
+
+
   public getCompanyUrl() {
     return this.companyMenuUrl;
   }

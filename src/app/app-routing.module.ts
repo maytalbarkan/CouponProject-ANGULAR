@@ -2,7 +2,7 @@
 import { LoginComponent } from './LoginPage/login/login.component';
 import { AdminComponent } from './AdminPage/admin/admin.component';
 import { UpdateCompanyComponent } from './AdminPage/Company-admin/update-company/update-company.component';
-import { AddCustomerComponent } from './AdminPage/Customer-admin/add-customer/add-customer.component';
+import { AddCustomerComponent } from './signup/add-customer/add-customer.component';
 import { UpdateCustomerComponent } from './AdminPage/Customer-admin/update-customer/update-customer.component';
 import { Routes, RouterModule } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
@@ -16,7 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { CustomerComponent } from './CustomerPage/customer.component';
 // import { GetAllPurchasedCouponsComponent } from './customer/get-all-purchased-coupons/get-all-purchased-coupons.component';import { GetAllPurchasedCouponsByTypeComponent } from './customer/get-all-purchased-coupons-by-type/get-all-purchased-coupons-by-type.component';
 import { GetCustomerComponent } from './AdminPage/Customer-admin/get-customer/get-customer.component';
-import { CreateCompanyComponent } from './AdminPage/Company-admin/create-company/create-company.component';
+import { CreateCompanyComponent } from './signup/create-company/create-company.component';
 import { RemoveCompanyComponent } from './AdminPage/Company-admin/remove-company/remove-company.component';
 import { RemoveCustomerComponent } from './AdminPage/Customer-admin/remove-customer/remove-customer.component';
 import { GetCompanyComponent } from './AdminPage/Company-admin/get-company/get-company.component';

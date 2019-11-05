@@ -3,6 +3,7 @@ import { AdminService } from 'src/app/services/admin.service';
 import { Router } from '@angular/router';
 import { ResponseCodes } from 'src/app/models/ResponseCodesEnums';
 import { HttpErrorResponse } from '@angular/common/http';
+import { SignupService } from '../signup-service';
 
 @Component({
   selector: 'app-create-company',
@@ -11,13 +12,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class CreateCompanyComponent implements OnInit {
 
-  constructor(private adminservice: AdminService, private router: Router) { }
+  constructor(private signupervice: SignupService, private router: Router) { }
 
   ngOnInit() {
   }
 
   public createCompany(companyName, password, email) {
-    this.adminservice.createCompany(companyName, password, email).subscribe(res => {
+    this.signupervice.createCompany(companyName, password, email).subscribe(res => {
       if (res.status === ResponseCodes.OK) { console.log("CREATE company success! :) " + res.body); alert("CREATE company success! :)"); }
       else { console.log("CREATE company faild! :( "); }
     },
@@ -27,7 +28,7 @@ export class CreateCompanyComponent implements OnInit {
         this.router.navigate(["/login"]); }
         else { console.log("CREATE company error :( "); alert("this company already exist!"); }
       });
-    this.router.navigate(["/admin"]);
+    this.router.navigate(["/home"]);
   }
 
 }
