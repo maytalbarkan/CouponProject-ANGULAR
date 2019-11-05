@@ -18,9 +18,12 @@
   <ul *ngFor="let c of this.itemService.coupons">
     <br>
     <br>
-    Coupon ID: <span>{{c.id}}</span>
+    <div class="image clearfix">
+      <img src={{c.image}} style="width:50%" alt="coupon">
+      </div>
+    <h4><b> Coupon ID: <span>{{c.id}}</span> </b></h4>
     <br>
-    Title: <span>{{c.title}}</span>
+    <h4><b> Title: <span>{{c.title}}</span></b></h4>
     <br>
     Start Date: <span>{{c.startDate}}</span>
     <br>
@@ -32,11 +35,10 @@
     <br>
     Price: <span>{{c.price}}</span>
     <br>
-    <!-- Image: <span>{{c.image}}</span> -->
-    Image: <span><img src="/assets/images/{{c.image}}.jpg" style="width:70px;height:55px;"></span>
-    <br>
     Coupon Type: <span>{{c.type}}</span>
-    <br>
+  <br>
+  <br>
+  
   </ul>
 
   <br>

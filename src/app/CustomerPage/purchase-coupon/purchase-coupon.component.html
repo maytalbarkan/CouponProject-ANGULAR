@@ -1,4 +1,9 @@
 
+    <title>W3.CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   
+
 <div class="jumbotron center_div" >
   <h1 class="display-4">Purchase coupon </h1>
   <p class="lead">On this page you can see all our website coupon's if you want to purchase a coupon please edit his id number and press purchase</p>
@@ -16,17 +21,21 @@
 
 
  <div>
-  <button class="buttons" (click)="getAllCoupons()"> click</button>
+  <button class="buttons" (click)="getAllCoupons()"> show coupon</button>
 </div>
 
-<div class="getInfoAll">
+
+<div class="w3-container">
+    <div class="w3-card" style="width:50%">
     <ul *ngFor="let c of this.itemService.coupons">
       <br>
+      <img src={{c.image}} style="width:100%" alt="coupon">
       <br>
-      Coupon ID: <span>{{c.id}}</span>
-      <br>
-      Title: <span>{{c.title}}</span>
-      <br>
+      <div class="w3-container">       
+      <h4><b> <span>{{c.title}}</span></b></h4>
+      
+      <h4><b> Coupon ID: <span>{{c.id}}</span></b></h4>
+      <p> 
       Start Date: <span>{{c.startDate}}</span>
       <br>
       End Date: <span>{{c.endDate}}</span>
@@ -37,17 +46,22 @@
       <br>
       Price: <span>{{c.price}}</span>
       <br>
-      <!-- Image: <span>{{c.image}}</span> -->
-      Image: <span><img src="/assets/images/{{c.image}}.jpg" style="width:70px;height:55px;"></span>
-      <br>
       Coupon Type: <span>{{c.type}}</span>
       <br>
-    </ul>
-
-
+      <br>
+      <br>
+      <br>
+      <br>
+       </p>
+      </div>
+      </ul>
+    
+      <br>
+      <br>
+ </div>
 
 
  
   <a class="backTo" routerLink='/customer'> Back to Customer menu</a>
 
-</div>
+

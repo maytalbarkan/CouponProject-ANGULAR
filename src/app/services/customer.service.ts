@@ -12,9 +12,9 @@ import { Observable } from 'rxjs';
     constructor(private http: HttpClient, private urlsService: UrlsServiceService, private loginService: LoginService) { }
 
     public purchasecoupon = "purchaseCoupon";
-    private getcouponsbycoupontype = "getCouponsByCouponType";
+    private getcouponsbycoupontype = "getCustomerByCouponType";
     private getallcustomercoupons = "getAllCustomerCoupons";
-    private getcouponsbyprice = "getCouponsByPrice";
+    private getcouponsbyprice = "getCustomerByPrice";
     private getallcoupons = "getAllCoupons";
        
     //purchase coupon 
@@ -26,7 +26,7 @@ import { Observable } from 'rxjs';
 
   //get all coupons works! 
   public getAllCoupons(): Observable<any> {
-    let url = this.urlsService.getAdminUrl() + this.getallcoupons + "/" + this.loginService.token;
+    let url = this.urlsService.getCustomerUrl() + this.getallcoupons ;
     return this.http.get(url, { observe: 'response', responseType: 'text' });
   }
 
